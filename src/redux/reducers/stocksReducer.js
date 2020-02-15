@@ -11,17 +11,14 @@ const stocksReducer = (state = initialState, action) => {
       let stocks = stockRecords.map(stock => {
         return { id: stock.id, ...stock.fields };
       });
-      console.log(stocks);
-      console.log(action.stocksData);
       return Object.assign({}, state, {
         stockRecords: stockRecords,
         stocks: stocks
       });
     case "UPDATE_STOCK_DATA":
-      let newStock = action.stock.records[0];
-      console.log(newStock);
+      let newStock = action.stock;
       return Object.assign({}, state, {
-        stocks: [...state.stocks, newStock.fields]
+        stocks: [...state.stocks, { id: newStock.id, ...newStock.fields }]
       });
     case "DELETE_STOCK_DATA":
       let stocksInState = state.stocks;

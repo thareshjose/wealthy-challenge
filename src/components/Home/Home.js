@@ -7,7 +7,7 @@ const Home = props => {
   useEffect(() => {
     props.getStocksData();
   }, []);
-  if (props.stocks.length) {
+  if (!props.length) {
     return (
       <div className="container-main">{props.stocks && <StocksCalender />}</div>
     );

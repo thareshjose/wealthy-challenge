@@ -26,6 +26,7 @@ function monthCellRender(value) {
 }
 
 const StocksCalender = props => {
+  console.log("State : ", props.stocks);
   const [modalVisible, setModalVisibility] = useState(false);
   const [newStockPrice, setNewStockPrice] = useState(0);
   const [selectedDate, setSelectedDate] = useState();
@@ -143,9 +144,12 @@ const StocksCalender = props => {
         className="add-stock-modal"
       >
         <InputNumber
+          formatter={value => `₹ ${value}`}
+          size="large"
           defaultValue={0}
           value={0}
           onChange={setNewStocksPrice}
+          onPressEnter={() => alert("hi")}
           className="stock-price-input"
         />
       </Modal>

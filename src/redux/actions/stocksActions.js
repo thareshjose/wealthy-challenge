@@ -27,6 +27,7 @@ export const addStockPrice = stock => {
     apiAddStockPrice(stock).then(response => {
       if (!response.data) {
       } else {
+        let stock = response.data.records[0];
         dispatch(updateStocksData(stock));
         dispatch(showToastMessage("Stock Price has been updated."));
       }
