@@ -1,0 +1,52 @@
+.container-stocks {
+  width: 50%;
+  float: left;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+.stock-price-item {
+  margin: auto;
+}
+
+.stock-remove-button {
+  text-align: right;
+}
+
+.stock-remove-icon {
+  color: red;
+  font-size: 0.9vw;
+}
+
+.calender-stock-price {
+  width: 83%;
+  height: 26px;
+  font-size: 1.2vw;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.add-stock-modal {
+  text-align: center;
+}
+
+.stock-price-input {
+  width: 30%;
+  font-size: 1.2vw;
+}
+
+.add-stock-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.3vw;
+}
