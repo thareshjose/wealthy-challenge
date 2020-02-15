@@ -3,8 +3,9 @@ import Axios from "axios";
 const stocksUrl =
   "https://api.airtable.com/v0/appfSnQLDjmZaKBkW/tblaBiC6LtFpJ6nRw?api_key=";
 
-const updateStockPriceUrl =
+const modifyStockPriceUrl =
   "https://api.airtable.com/v0/appfSnQLDjmZaKBkW/Stock%20Prices";
+
 const apiKey = "keyqdUGZqw83GnkG7";
 const headers = {
   Authorization: "Bearer " + apiKey,
@@ -24,7 +25,12 @@ export const apiFetchStocksData = () => {
 };
 
 export const apiAddStockPrice = data => {
-  console.log("update call");
   let payload = data;
-  return Axios.post(updateStockPriceUrl, payload, { headers: headers });
+  return Axios.post(modifyStockPriceUrl, payload, { headers: headers });
+};
+
+export const apiDeleteStockPrice = stockId => {
+  return Axios.delete(modifyStockPriceUrl + "/" + stockId, {
+    headers: headers
+  });
 };

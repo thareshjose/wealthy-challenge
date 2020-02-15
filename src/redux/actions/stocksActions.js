@@ -1,5 +1,6 @@
 import { apiFetchStocksData } from "./apiActions";
 import { apiAddStockPrice } from "./apiActions";
+import { apiDeleteStockPrice } from "./apiActions";
 
 export const getStocksData = () => {
   return dispatch => {
@@ -24,14 +25,29 @@ export const setMonth = month => {
 export const addStockPrice = stock => {
   return dispatch => {
     apiAddStockPrice(stock).then(response => {
-      console.log(response);
       if (!response.data) {
       } else {
         dispatch(updateStocksData(stock));
-        dispatch(showToastMessage("Stock Price Updated Successfully"));
+        dispatch(showToastMessage("Stock Price has been updated."));
       }
     });
   };
+};
+
+export const deleteStockPrice = stockId => {
+  return dispatch => {
+    apiDeleteStockPrice(stockId).then(response => {
+      if (!response.data) {
+      } else {
+        dispatch(deleteStockData(stockId));
+        dispatch(showToastMessage("Stock Price has been removed!"));
+      }
+    });
+  };
+};
+
+export const deleteStockData = stockId => {
+  return { type: "DELETE_STOCK_DATA", stockId: stockId };
 };
 
 export const updateStocksData = stock => {

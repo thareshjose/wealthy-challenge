@@ -3,6 +3,7 @@ import { Calendar, Button, Icon, Tag, Modal, InputNumber } from "antd";
 import { connect } from "react-redux";
 import { getStocksData } from "../../redux/actions/stocksActions";
 import { addStockPrice } from "../../redux/actions/stocksActions";
+import { deleteStockPrice } from "../../redux/actions/stocksActions";
 import { setMonth } from "../../redux/actions/stocksActions";
 
 import "antd/dist/antd.css";
@@ -74,11 +75,14 @@ const StocksCalender = props => {
         }
       ]
     };
-    console.error("new");
-    console.log(newStockData);
     props.addStockPrice(newStockData);
     setNewStockPrice(0);
     toggleModalVisibility();
+  };
+
+  const deleteStockPrice = stock => {
+    let stockId = stock.id;
+    props.deleteStockPrice(stockId);
   };
 
   const setMonth = value => {
@@ -99,6 +103,7 @@ const StocksCalender = props => {
                   type="close-circle"
                   theme="filled"
                   className="stock-remove-icon"
+                  onClick={() => deleteStockPrice(stock)}
                 />
               </li>
               <li>
@@ -158,7 +163,8 @@ const mapDispatchToProps = dispatch => {
   return {
     getStocksData: () => dispatch(getStocksData()),
     setMonth: month => dispatch(setMonth(month)),
-    addStockPrice: newStockData => dispatch(addStockPrice(newStockData))
+    addStockPrice: newStockData => dispatch(addStockPrice(newStockData)),
+    deleteStockPrice: stockId => dispatch(deleteStockPrice(stockId))
   };
 };
 
