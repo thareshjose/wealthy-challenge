@@ -1,5 +1,5 @@
 import { apiFetchStocksData } from "./apiActions";
-import { apiUpdateStockPrice } from "./apiActions";
+import { apiAddStockPrice } from "./apiActions";
 
 export const getStocksData = () => {
   return dispatch => {
@@ -21,15 +21,21 @@ export const setMonth = month => {
   return { type: "SET_MONTH", month: month };
 };
 
-export const updateStockPrice = stock => {
+export const addStockPrice = stock => {
   return dispatch => {
-    apiUpdateStockPrice(stock).then(response => {
-      if (response.error) {
+    apiAddStockPrice(stock).then(response => {
+      console.log(response);
+      if (!response.data) {
       } else {
+        dispatch(updateStocksData(stock));
         dispatch(showToastMessage("Stock Price Updated Successfully"));
       }
     });
   };
+};
+
+export const updateStocksData = stock => {
+  return { type: "UPDATE_STOCK_DATA", stock: stock };
 };
 
 export const showToastMessage = message => {

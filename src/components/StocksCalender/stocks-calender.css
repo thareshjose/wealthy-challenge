@@ -42,11 +42,14 @@ li {
   width: 30%;
   font-size: 1.2vw;
 }
-
-.add-stock-icon {
+.add-stock-list-item {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.3vw;
+  font-size: 1.1vw;
+}
+
+.add-stock-button {
+  color: rgb(8, 187, 2);
 }

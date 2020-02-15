@@ -4,8 +4,12 @@ const stocksUrl =
   "https://api.airtable.com/v0/appfSnQLDjmZaKBkW/tblaBiC6LtFpJ6nRw?api_key=";
 
 const updateStockPriceUrl =
-  "https://api.airtable.com/v0/appfSnQLDjmZaKBkW/Stock%20Prices/recQ1rDXjCYH5IWxh";
+  "https://api.airtable.com/v0/appfSnQLDjmZaKBkW/Stock%20Prices";
 const apiKey = "keyqdUGZqw83GnkG7";
+const headers = {
+  Authorization: "Bearer " + apiKey,
+  "Content-Type": "application/json"
+};
 
 export const apiFetchStocksData = () => {
   console.log("here");
@@ -19,15 +23,8 @@ export const apiFetchStocksData = () => {
     });
 };
 
-export const apiUpdateStockPrice = data => {
+export const apiAddStockPrice = data => {
   console.log("update call");
-  let encodedURI = window.encodeURI(updateStockPriceUrl);
   let payload = data;
-  return Axios.put(encodedURI, payload)
-    .then(response => {
-      console.log(response);
-    })
-    .catch(error => {
-      console.log(error);
-    });
+  return Axios.post(updateStockPriceUrl, payload, { headers: headers });
 };

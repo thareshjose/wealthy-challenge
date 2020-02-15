@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Calendar, Badge, Icon, Tag, Modal, InputNumber } from "antd";
+import { Calendar, Button, Icon, Tag, Modal, InputNumber } from "antd";
 import { connect } from "react-redux";
 import { getStocksData } from "../../redux/actions/stocksActions";
+import { addStockPrice } from "../../redux/actions/stocksActions";
 import { setMonth } from "../../redux/actions/stocksActions";
 
 import "antd/dist/antd.css";
@@ -26,21 +27,18 @@ function monthCellRender(value) {
 const StocksCalender = props => {
   const [modalVisible, setModalVisibility] = useState(false);
   const [newStockPrice, setNewStockPrice] = useState(0);
+  const [selectedDate, setSelectedDate] = useState();
 
   const stocks = props.stocks;
   const stocksData = stocks.map(stock => {
-    let stockDate = new Date(stock.fields.date);
+    let stockDate = new Date(stock.date);
     let day = stockDate.getDate();
     let month = stockDate.getMonth();
     let year = stockDate.getFullYear();
-    return Object.assign(
-      {},
-      { year: year, month: month, day: day, ...stock.fields }
-    );
+    return Object.assign({}, { year: year, month: month, day: day, ...stock });
   });
 
   const getStockRecord = value => {
-    console.log(value);
     return stocksData.filter(
       stock =>
         stock.day === value.date() &&
@@ -49,8 +47,9 @@ const StocksCalender = props => {
     );
   };
 
-  const toggleModalVisibility = () => {
+  const toggleModalVisibility = date => {
     setModalVisibility(!modalVisible);
+    setSelectedDate(date);
   };
 
   const setNewStocksPrice = stockPrice => {
@@ -58,7 +57,26 @@ const StocksCalender = props => {
   };
 
   const addStockPrice = () => {
-    alert(newStockPrice);
+    let date =
+      selectedDate.year() +
+      "-" +
+      (selectedDate.month() + 1) +
+      "-" +
+      selectedDate.date();
+
+    let newStockData = {
+      records: [
+        {
+          fields: {
+            date,
+            price: newStockPrice
+          }
+        }
+      ]
+    };
+    console.error("new");
+    console.log(newStockData);
+    props.addStockPrice(newStockData);
     setNewStockPrice(0);
     toggleModalVisibility();
   };
@@ -91,13 +109,14 @@ const StocksCalender = props => {
             </ul>
           ))}
         {stockRecord.length === 0 && (
-          <li className="add-stock-icon">
-            <Icon
-              type="plus-circle"
-              theme="twoTone"
-              twoToneColor="#52c41a"
-              onClick={toggleModalVisibility}
-            />
+          <li className="add-stock-list-item">
+            <Button
+              className="add-stock-button"
+              onClick={() => toggleModalVisibility(value)}
+            >
+              <Icon type="plus" />
+              Add
+            </Button>
           </li>
         )}
       </ul>
@@ -120,6 +139,7 @@ const StocksCalender = props => {
       >
         <InputNumber
           defaultValue={0}
+          value={0}
           onChange={setNewStocksPrice}
           className="stock-price-input"
         />
@@ -137,7 +157,8 @@ const mapStateToProps = store => {
 const mapDispatchToProps = dispatch => {
   return {
     getStocksData: () => dispatch(getStocksData()),
-    setMonth: month => dispatch(setMonth(month))
+    setMonth: month => dispatch(setMonth(month)),
+    addStockPrice: newStockData => dispatch(addStockPrice(newStockData))
   };
 };
 
