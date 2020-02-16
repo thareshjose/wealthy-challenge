@@ -18,8 +18,8 @@ export const updateStocksCalender = stocksData => {
   return { type: "UPDATE_STOCKS_CALENDER", stocksData: stocksData };
 };
 
-export const setMonth = month => {
-  return { type: "SET_MONTH", month: month };
+export const setMonthAndYear = (month, year) => {
+  return { type: "SET_MONTH_YEAR", month: month, year: year };
 };
 
 export const addStockPrice = stock => {

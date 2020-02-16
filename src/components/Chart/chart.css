@@ -1,4 +1,10 @@
 .chart-container {
-  width: 50%;
+  width: 38%;
+  margin: 2%;
+  margin-left: 0;
   float: right;
+}
+
+.chart {
+  width: 100%;
 }

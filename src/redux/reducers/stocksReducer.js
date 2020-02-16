@@ -1,7 +1,8 @@
 const initialState = {
   stocks: [],
   stockRecords: [],
-  month: ""
+  month: new Date().getMonth(),
+  year: new Date().getFullYear()
 };
 
 const stocksReducer = (state = initialState, action) => {
@@ -35,8 +36,11 @@ const stocksReducer = (state = initialState, action) => {
       let stocksInState = state.stocks;
       let updatedStocks = stocksInState.filter(x => x.id !== action.stockId);
       return Object.assign({}, state, { stocks: updatedStocks });
-    case "SET_MONTH":
-      return Object.assign({}, state, { month: action.month });
+    case "SET_MONTH_YEAR":
+      return Object.assign({}, state, {
+        month: action.month,
+        year: action.year
+      });
     default:
       return state;
   }

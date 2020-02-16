@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Calendar, Button, Icon, Tag, Modal, InputNumber } from "antd";
+import { Calendar, Button, Icon, Tag, Modal, InputNumber, Card } from "antd";
 import { connect } from "react-redux";
 import { getStocksData } from "../../redux/actions/stocksActions";
 import { addStockPrice } from "../../redux/actions/stocksActions";
 import { deleteStockPrice } from "../../redux/actions/stocksActions";
-import { setMonth } from "../../redux/actions/stocksActions";
+import { setMonthAndYear } from "../../redux/actions/stocksActions";
 
 import "antd/dist/antd.css";
 import "./stocks-calender.css";
@@ -86,10 +86,11 @@ const StocksCalender = props => {
     props.deleteStockPrice(stockId);
   };
 
-  const setMonth = value => {
+  const setMonthAndYear = value => {
     let date = new Date(value);
     let month = date.getMonth();
-    props.setMonth(month);
+    let year = date.getFullYear();
+    props.setMonthAndYear(month, year);
   };
 
   const dateCellRender = value => {
@@ -120,8 +121,10 @@ const StocksCalender = props => {
               className="add-stock-button"
               onClick={() => toggleModalVisibility(value)}
             >
-              <Icon type="plus" />
-              Add
+              <span>
+                <Icon type="plus" />
+                Add
+              </span>
             </Button>
           </li>
         )}
@@ -130,11 +133,11 @@ const StocksCalender = props => {
   };
 
   return (
-    <div className="container-stocks">
+    <Card bordered={false} className="stocks-container">
       <Calendar
         dateCellRender={dateCellRender}
         monthCellRender={monthCellRender}
-        onPanelChange={setMonth}
+        onPanelChange={setMonthAndYear}
       />
       <Modal
         title="Add Stock Price"
@@ -153,7 +156,7 @@ const StocksCalender = props => {
           className="stock-price-input"
         />
       </Modal>
-    </div>
+    </Card>
   );
 };
 
@@ -166,7 +169,7 @@ const mapStateToProps = store => {
 const mapDispatchToProps = dispatch => {
   return {
     getStocksData: () => dispatch(getStocksData()),
-    setMonth: month => dispatch(setMonth(month)),
+    setMonthAndYear: (month, year) => dispatch(setMonthAndYear(month, year)),
     addStockPrice: newStockData => dispatch(addStockPrice(newStockData)),
     deleteStockPrice: stockId => dispatch(deleteStockPrice(stockId))
   };

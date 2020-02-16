@@ -11,14 +11,8 @@ const Home = props => {
   }, []);
   return (
     <div className="container-main">
-      {props.stocks.length ? (
-        <div className="calender-container">
-          <StocksCalender />
-        </div>
-      ) : (
-        <div>Loading calender</div>
-      )}
-      <Chart />
+      {props.stocks.length ? <StocksCalender /> : <div>Loading calender</div>}
+      {props.stocks.length ? <Chart /> : <div>Loading calender</div>}
     </div>
   );
 };

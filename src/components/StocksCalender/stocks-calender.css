@@ -1,6 +1,7 @@
-.container-stocks {
-  width: 50%;
+.stocks-container {
+  width: 56%;
   float: left;
+  margin: 2%;
 }
 
 li {
@@ -52,4 +53,15 @@ li {
 
 .add-stock-button {
   color: rgb(8, 187, 2);
+  /* padding: 0 6px; */
+}
+
+@media only screen and (max-width: 426px) {
+  .add-stock-button span {
+    display: none;
+  }
+  .add-stock-button::after {
+    content: "+";
+    text-align: center;
+  }
 }
