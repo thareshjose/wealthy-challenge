@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 const stocksUrl =
-  "https://api.airtable.com/v0/appfSnQLDjmZaKBkW/tblaBiC6LtFpJ6nRw?api_key=";
+  "https://api.airtable.com/v0/appfSnQLDjmZaKBkW/tblaBiC6LtFpJ6nRw?sort%5B0%5D%5Bfield%5D=date&sort%5B0%5D%5Bdirection%5D=asc";
 
 const modifyStockPriceUrl =
   "https://api.airtable.com/v0/appfSnQLDjmZaKBkW/Stock%20Prices";
@@ -14,8 +14,7 @@ const headers = {
 
 export const apiFetchStocksData = () => {
   console.log("here");
-  let encodedURI = window.encodeURI(stocksUrl + apiKey);
-  return Axios.get(encodedURI)
+  return Axios.get(stocksUrl, { headers: headers })
     .then(response => {
       return response;
     })

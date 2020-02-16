@@ -2,18 +2,25 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getStocksData } from "../../redux/actions/stocksActions";
 import StocksCalender from "../StocksCalender/StocksCalender";
+import Chart from "../Chart/Chart";
 
 const Home = props => {
   useEffect(() => {
     props.getStocksData();
+    console.log("getting");
   }, []);
-  if (!props.length) {
-    return (
-      <div className="container-main">{props.stocks && <StocksCalender />}</div>
-    );
-  } else {
-    return <div>...loading</div>;
-  }
+  return (
+    <div className="container-main">
+      {props.stocks.length ? (
+        <div className="calender-container">
+          <StocksCalender />
+        </div>
+      ) : (
+        <div>Loading calender</div>
+      )}
+      <Chart />
+    </div>
+  );
 };
 
 const mapStateToProps = store => {
