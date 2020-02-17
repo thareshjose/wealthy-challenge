@@ -1,0 +1,17 @@
+.profit-price-container {
+  width: 38%;
+  margin: 2% 2% 0 0;
+  float: right;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3vw;
+}
+@media only screen and (max-width: 426px) {
+  .profit-price-container {
+    width: 96%;
+    margin: 2% 2% 0 0;
+  }
+  .profit-price-container p {
+    font-size: 5vw;
+  }
+}

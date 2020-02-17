@@ -55,6 +55,10 @@ export const updateStocksData = stock => {
   return { type: "UPDATE_STOCK_DATA", stock: stock };
 };
 
+export const getMaximumProfit = () => {
+  return { type: "GET_MAXIMUM_PROFIT" };
+};
+
 export const showToastMessage = message => {
   return { type: "SHOW_TOAST_MESSAGE", message: message };
 };

@@ -2,7 +2,10 @@ const initialState = {
   stocks: [],
   stockRecords: [],
   month: new Date().getMonth(),
-  year: new Date().getFullYear()
+  year: new Date().getFullYear(),
+  buyDate: "",
+  sellDate: "",
+  maximumProfit: 0
 };
 
 const stocksReducer = (state = initialState, action) => {
@@ -41,6 +44,23 @@ const stocksReducer = (state = initialState, action) => {
         month: action.month,
         year: action.year
       });
+    case "GET_MAXIMUM_PROFIT":
+      let dailyProfitList = state.stocks.map((stockA, indexA) => {
+        let stockDetails = { ...stockA };
+        let price = Number(stockA.price) * 10;
+
+        let priceDiffList = state.stocks.map((stockB, indexB) => {
+          let priceDiff = Number(stockB.price) * 10 - price;
+          console.log(priceDiff);
+          if (indexB <= indexA) {
+            return 0;
+          }
+          return priceDiff >= 0 ? priceDiff : 0;
+        });
+        return Math.max(...priceDiffList);
+      });
+      const maximumProfit = Math.max(...dailyProfitList);
+      return Object.assign({}, state, { maximumProfit: maximumProfit });
     default:
       return state;
   }

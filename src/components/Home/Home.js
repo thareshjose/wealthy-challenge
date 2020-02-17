@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { getStocksData } from "../../redux/actions/stocksActions";
 import StocksCalender from "../StocksCalender/StocksCalender";
 import Chart from "../Chart/Chart";
+import Profit from "../Profit/Profit";
+import Loader from "../Loader/Loader";
 
 const Home = props => {
   useEffect(() => {
@@ -11,8 +13,13 @@ const Home = props => {
   }, []);
   return (
     <div className="container-main">
-      {props.stocks.length ? <StocksCalender /> : <div>Loading calender</div>}
-      {props.stocks.length ? <Chart /> : <div>Loading calender</div>}
+      {props.stocks.length ? (
+        <div>
+          <StocksCalender /> <Profit /> <Chart />
+        </div>
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };

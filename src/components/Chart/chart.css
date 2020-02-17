@@ -8,3 +8,17 @@
 .chart {
   width: 100%;
 }
+
+.ant-radio-button-wrapper:last-child {
+  display: none;
+}
+
+@media only screen and (max-width: 426px) {
+  .chart-container {
+    width: 96%;
+    margin: 2%;
+  }
+  .chart {
+    width: 100%;
+  }
+}
