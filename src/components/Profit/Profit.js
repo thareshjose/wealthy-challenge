@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import { getMaximumProfit } from "../../redux/actions/stocksActions";
 
 const Profit = props => {
-  //   const maximumProfit = props.maximumProfit;
   useEffect(() => {
     props.getMaximumProfit();
   });

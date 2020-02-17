@@ -87,6 +87,8 @@ li {
     text-align: center;
   }
   .stocks-container {
-    width: 96%;
+    width: 92%;
+    margin: 4%;
+    margin-bottom: 0;
   }
 }

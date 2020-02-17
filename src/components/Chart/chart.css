@@ -15,8 +15,8 @@
 
 @media only screen and (max-width: 426px) {
   .chart-container {
-    width: 96%;
-    margin: 2%;
+    width: 92%;
+    margin: 4%;
   }
   .chart {
     width: 100%;

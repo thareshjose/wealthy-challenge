@@ -51,7 +51,6 @@ const stocksReducer = (state = initialState, action) => {
 
         let priceDiffList = state.stocks.map((stockB, indexB) => {
           let priceDiff = Number(stockB.price) * 10 - price;
-          console.log(priceDiff);
           if (indexB <= indexA) {
             return 0;
           }
