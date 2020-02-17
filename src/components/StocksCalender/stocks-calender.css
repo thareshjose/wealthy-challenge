@@ -72,9 +72,17 @@ li {
   }
 
   .calender-stock-price {
+    text-align: right;
+  }
+
+  .stock-price-input {
+    font-size: 4vw;
+  }
+  .calender-stock-price {
     width: 100%;
     height: 26px;
-    font-size: 3vw;
+    font-size: 0.8em;
+    padding: 0;
   }
   .ant-fullcalendar-date {
     padding: 0;
