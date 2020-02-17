@@ -7,7 +7,6 @@ export const getStocksData = () => {
     apiFetchStocksData().then(response => {
       if (response.error) {
       } else {
-        console.log(response.data.records);
         dispatch(updateStocksCalender(response.data.records));
       }
     });

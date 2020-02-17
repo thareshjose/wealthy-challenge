@@ -13,7 +13,6 @@ const headers = {
 };
 
 export const apiFetchStocksData = () => {
-  console.log("here");
   return Axios.get(stocksUrl, { headers: headers })
     .then(response => {
       return response;

@@ -26,7 +26,6 @@ function monthCellRender(value) {
 }
 
 const StocksCalender = props => {
-  console.log("State : ", props.stocks);
   const [modalVisible, setModalVisibility] = useState(false);
   const [newStockPrice, setNewStockPrice] = useState(0);
   const [selectedDate, setSelectedDate] = useState();

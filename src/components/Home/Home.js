@@ -9,7 +9,6 @@ import Loader from "../Loader/Loader";
 const Home = props => {
   useEffect(() => {
     props.getStocksData();
-    console.log("getting");
   }, []);
   return (
     <div className="container-main">
