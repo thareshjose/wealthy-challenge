@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/wealthy-challenge/static/css/main.39822954.chunk.css",
+    "main.js": "/wealthy-challenge/static/js/main.2455c1a4.chunk.js",
+    "main.js.map": "/wealthy-challenge/static/js/main.2455c1a4.chunk.js.map",
+    "runtime-main.js": "/wealthy-challenge/static/js/runtime-main.889c1f11.js",
+    "runtime-main.js.map": "/wealthy-challenge/static/js/runtime-main.889c1f11.js.map",
+    "static/css/2.9ddb28ea.chunk.css": "/wealthy-challenge/static/css/2.9ddb28ea.chunk.css",
+    "static/js/2.dbb26e04.chunk.js": "/wealthy-challenge/static/js/2.dbb26e04.chunk.js",
+    "static/js/2.dbb26e04.chunk.js.map": "/wealthy-challenge/static/js/2.dbb26e04.chunk.js.map",
+    "index.html": "/wealthy-challenge/index.html",
+    "precache-manifest.39e2ae85339a3b1d2046cf535295b063.js": "/wealthy-challenge/precache-manifest.39e2ae85339a3b1d2046cf535295b063.js",
+    "service-worker.js": "/wealthy-challenge/service-worker.js",
+    "static/css/2.9ddb28ea.chunk.css.map": "/wealthy-challenge/static/css/2.9ddb28ea.chunk.css.map",
+    "static/css/main.39822954.chunk.css.map": "/wealthy-challenge/static/css/main.39822954.chunk.css.map",
+    "static/js/2.dbb26e04.chunk.js.LICENSE.txt": "/wealthy-challenge/static/js/2.dbb26e04.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.889c1f11.js",
+    "static/css/2.9ddb28ea.chunk.css",
+    "static/js/2.dbb26e04.chunk.js",
+    "static/css/main.39822954.chunk.css",
+    "static/js/main.2455c1a4.chunk.js"
+  ]
+}
