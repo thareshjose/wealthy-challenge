@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7b4d9c9dc417d29ac3bf4202bc6532e9",
+    "revision": "e497036a56ec0701e6edd79d3bf9582e",
     "url": "/wealthy-challenge/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/wealthy-challenge/static/css/2.9ddb28ea.chunk.css"
   },
   {
-    "revision": "bda24f738233730bd65c",
-    "url": "/wealthy-challenge/static/css/main.39822954.chunk.css"
+    "revision": "159adddc1d3a61a7e0e4",
+    "url": "/wealthy-challenge/static/css/main.efe324c1.chunk.css"
   },
   {
     "revision": "7a3488d06fa5374a335c",
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/wealthy-challenge/static/js/2.dbb26e04.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "bda24f738233730bd65c",
+    "revision": "159adddc1d3a61a7e0e4",
     "url": "/wealthy-challenge/static/js/main.2455c1a4.chunk.js"
   },
   {
