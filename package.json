@@ -8,7 +8,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "antd": "^3.26.9",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "highcharts": "^8.0.0",
     "highcharts-react-official": "^2.2.2",
     "react": "^16.12.0",
